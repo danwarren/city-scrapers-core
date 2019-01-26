@@ -80,7 +80,7 @@ class Command(ScrapyCommand):
         res = requests.get(start_url, headers={"user-agent": USER_AGENT})
         content = res.text.strip()
         fixture_file = join(self.fixtures_dir, "{}.html".format(name))
-        with open(fixture_file, "w") as f:
+        with open(fixture_file, "w", encoding="utf-8") as f:
             f.write(content)
         print("Created file: {}".format(fixture_file))
         return "{}.html".format(name)
